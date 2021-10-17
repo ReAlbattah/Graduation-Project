@@ -22,7 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    public function students(){
+        return $this->hasMany('App\Models\students');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
