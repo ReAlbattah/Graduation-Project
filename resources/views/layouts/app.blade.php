@@ -36,24 +36,40 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                    
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <button class="btn btn-secondary mx-1" type="button">
                             About Us
                         </button>
-                        
-                        @if(Auth::user())
-                            <button class="btn btn-secondary mx-1" type="button">
-                                Template
-                            </button>
-                            
-                            @if(Auth::user()->role_id == 3)
+
+                        @if(Auth::user() && Auth::user()->role_id ==3 )
                                 <button class="btn btn-secondary mx-1" type="button">
                                     Subscribe for proposal
                                 </button>
-                            @endif
-                        @endif
+                            @endif 
+
+                        
+                        <button class="btn btn-secondary mx-1" type="button">
+                                Template
+                        </button>
+                            
+                        <button class="btn btn-secondary mx-1" type="button">
+                             Previous project 
+                        </button>
+
+
+                      <div class="dropdown">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Companies
+                       </a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Send Job</a>
+                      </div>
+                      </div>
+
 
                         
                     </ul>
