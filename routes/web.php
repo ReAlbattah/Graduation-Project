@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\TemplatesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Auth::routes();
 // Route::resource('/students',StudentsController::class)->name('*','students')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'view_templates']);
 
 Auth::routes();
 

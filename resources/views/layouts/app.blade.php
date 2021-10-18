@@ -52,9 +52,9 @@
                             @endif 
 
                         
-                        <button class="btn btn-secondary mx-1" type="button">
+                        <a class="btn btn-secondary mx-1" type="button" href="/templates">
                                 Template
-                        </button>
+                        </a>
                             
                         <button class="btn btn-secondary mx-1" type="button">
                              Previous project 
