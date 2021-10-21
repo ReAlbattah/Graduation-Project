@@ -1,10 +1,8 @@
-<html>
-<head>
-<title> </title>
-</head>
-<body>
-    
-welcome To our websit
+@extends('layouts.app')
 
-</body>
-    </html>
+@section('content')
+<div class="container text-center">
+
+    welcome to about us
+</div>
+@endsection 
