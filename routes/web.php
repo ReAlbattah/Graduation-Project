@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TemplatesController;
-
+use App\Http\Controllers\AboutusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,15 +24,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
- Route::post('students', [App\Http\Controllers\StudentsController::class, 'store'])->name('students.store');
-
-// Route::resource('/students',StudentsController::class)->name('*','students')->middleware('auth');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'view_templates']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/aboutus', [App\Http\Controllers\AboutusController::class, 'view_aboutus']);
