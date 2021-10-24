@@ -41,14 +41,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    <a class="btn btn-secondary mx-3" type="button" href= "/aboutus">
+                    <a class="btn btn-secondary mx-1" type="button" href= "/aboutus">
                             About Us
                     </a>
 
                         @if(Auth::user() && Auth::user()->role_id ==3 )
-                                <button class="btn btn-secondary mx-1" type="button">
+                                <a class="btn btn-secondary mx-1" type="button" href="/subForProposal" >
                                     Subscribe for proposal
-                                </button>
+                                </a>
                             @endif 
 
                         
@@ -56,9 +56,9 @@
                                 Template
                         </a>
                             
-                        <button class="btn btn-secondary mx-1" type="button">
+                        <a class="btn btn-secondary mx-1" type="button" href="/previousProject">
                              Previous project 
-                        </button>
+                        </a>
 
 
                       <div class="dropdown">
@@ -123,30 +123,55 @@
         <main class="py-4">
             
             @yield('content')
-            
         </main>
         {{-- send jobs form --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Submit a job offer</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
+                        </div>
+                        
                     <div class="modal-body">
                         <form action="#" method="post">
-                            
-                        </form>
-                    </div>
+                        <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Company's name: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group-prepend">
+                <span class="input-group-text " id="inputGroup-sizing-default">Location: </span>
+                </div>
+                <input type="text" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>   
+
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Job's name: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">More details: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>  
+                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">submit</button>
                     </div>
-                </div>
-            </div>
-        </div>
+                    </form>
     </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
 </body>
 </html>
