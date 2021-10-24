@@ -52,9 +52,19 @@
                             @endif 
 
                         
-                        <a class="btn btn-secondary mx-1" type="button" href="/templates">
-                                Template
-                        </a>
+                    
+
+                            
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Templates
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                @foreach ($templates as $template)
+                                    <a class="dropdown-item" type="button" href="/templates/download/{{$template->id}}">{{$template->name}}</a>
+                                @endforeach
+                            </div>
+                        </div>
                             
                         <a class="btn btn-secondary mx-1" type="button" href="/previousProject">
                              Previous project 
@@ -100,6 +110,9 @@
                                         <a class="dropdown-item"> student</a>
                                     @elseif(Auth::user()->role_id == 1)
                                         <a class="dropdown-item"> admin</a>
+                                    @endif
+                                    @if(Auth::user() && Auth::user()->role_id == 1)
+                                        <a class="dropdown-item" href="/templates"> Temlates</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
