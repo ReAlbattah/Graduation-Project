@@ -26,6 +26,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'view_templates']);
+Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
+Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
+Route::get('/templates/download/{id}', [App\Http\Controllers\TemplatesController::class, 'document_download']);
 
 Route::get('/aboutus', [App\Http\Controllers\AboutusController::class, 'view_aboutus']);
