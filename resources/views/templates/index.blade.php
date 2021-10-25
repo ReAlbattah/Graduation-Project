@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#add-template-modal">
+        <button type="button" class="btn btn-secondary mb-3" data-toggle="modal" data-target="#add-template-modal">
             Add Template
         </button>
 
@@ -25,12 +25,12 @@
                                 <form action="#" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                    <a type="submit" href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </form>
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                @endforeach  
             </tbody>
         </table>
     </div>

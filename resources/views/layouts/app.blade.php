@@ -57,7 +57,7 @@
                             
                         <div class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Templates
+                            Templates and Formes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 @foreach ($templates as $template)
@@ -139,7 +139,7 @@
         </main>
         {{-- send jobs form --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog " role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Submit a job offer</h5>
@@ -150,36 +150,31 @@
                         
                     <div class="modal-body">
                         <form action="#" method="post">
-                        <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Company's name: </span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
+                            <div class="form-group">
+                                <label for="usr">Company's name:</label>
+                                <input type="text" class="form-control" id="usr">
+                              </div>
 
-                <div class="input-group-prepend">
-                <span class="input-group-text " id="inputGroup-sizing-default">Location: </span>
-                </div>
-                <input type="text" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>   
-
-                <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Job's name: </span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-
-                <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">More details: </span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>  
-                    
-                    <div class="modal-footer">
+                            <div class="form-group">
+                                <label for="usr">Location: </label>
+                                <input type="text" class="form-control" id="usr">
+                            </div> 
+                              
+                            <div class="form-group">
+                                <label for="usr">Job's name: </label>
+                                <input type="text" class="form-control" id="usr">
+                              </div>   
+            
+                              <div class="form-group">
+                                <label for="usr">More details: </label>
+                                <textarea class="form-control" id="usr"></textarea>
+                              </div>  
+                
+                        <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">submit</button>
-                    </div>
-                    </form>
+                        </div>
+                        </form>
     </div>
     </div>
     </div>

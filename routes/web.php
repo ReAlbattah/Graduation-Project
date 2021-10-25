@@ -32,6 +32,8 @@ Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'inde
 Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
 Route::get('/templates/download/{id}', [App\Http\Controllers\TemplatesController::class, 'document_download']);
 
+
+
 Route::get('/aboutus', [App\Http\Controllers\AboutusController::class, 'view_aboutus']);
 
 Route::get('/previousProject', [App\Http\Controllers\previousProjectController::class, 'view_previousProject']);
