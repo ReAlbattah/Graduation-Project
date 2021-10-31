@@ -26,7 +26,7 @@ class TemplatesController extends Controller
         Template::create($data);
 
 
-        return redirect('templates');
+        return redirect('/admin/templates');    // return to template page after add temp
         
     }
 

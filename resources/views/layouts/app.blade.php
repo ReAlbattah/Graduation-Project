@@ -27,8 +27,8 @@
 <body>
     <div id="app">
         
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"> 
+
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -47,7 +47,7 @@
 
                         @if(Auth::user() && Auth::user()->role_id ==3 )
                                 <a class="btn btn-secondary mx-1" type="button" href="/subForProposal" >
-                                    Subscribe for proposal
+                                   Add Subscribe for proposal
                                 </a>
                             @endif 
 
@@ -80,12 +80,21 @@
                       </div>
                       </div>
 
+                      @if(Auth::user())
+                      <a class="btn btn-secondary mx-1" type="button" href="mailto: ">
+                        Contact
+                      </a>
+                       @endif 
 
-                        
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <form action="/action_page.php">
+                            <input class=" mt-2" type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                          </form>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -110,9 +119,13 @@
                                         <a class="dropdown-item"> student</a>
                                     @elseif(Auth::user()->role_id == 1)
                                         <a class="dropdown-item"> admin</a>
+                                    @elseif(Auth::user()->role_id == 2)
+                                    <a class="dropdown-item"> Supervisor</a>   
                                     @endif
                                     @if(Auth::user() && Auth::user()->role_id == 1)
-                                        <a class="dropdown-item" href="/templates"> Temlates</a>
+                                        <a class="dropdown-item" href="/admin/templates"> Temlates</a>
+                                        <a class="dropdown-item" href="/previousProject"> Previous Project</a>
+                                        <a class="dropdown-item" href="/usersmanagement"> Users Management</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

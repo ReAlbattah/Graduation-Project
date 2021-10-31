@@ -9,15 +9,13 @@
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($templates as $template)
-                    <tr>
-                        <th scope="row">{{$template->id}}</th>
+                <tr>
                         <td>{{$template->name}}</td>
                         <td>
                             <div class="btn-group" role="group">
@@ -48,8 +46,8 @@
             </button>
             </div>
             <div class="modal-body">
-                <form action="/templates" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form action="/admin/templates" method="post" enctype="multipart/form-data">
+                    @csrf 
                     <div class="form-group">
                       <label for="exampleInputEmail1">Template Name</label>
                       <input type="text" class="form-control" name="name">

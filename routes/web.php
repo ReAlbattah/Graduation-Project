@@ -5,6 +5,7 @@ use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\previousProjectController;
 use App\Http\Controllers\subForProposalController;
+use App\Http\Controllers\usersmanagementController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,15 +29,24 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
-Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
+Route::prefix('admin')->group(function () {
+    Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
+    Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
+});
+
+Route::prefix('supervisor')->group(function () {
+    
+});
 Route::get('/templates/download/{id}', [App\Http\Controllers\TemplatesController::class, 'document_download']);
 
 
 
 Route::get('/aboutus', [App\Http\Controllers\AboutusController::class, 'view_aboutus']);
 
+Route::get('/usersmanagement', [App\Http\Controllers\usersmanagementController::class, 'view_usersmanagement']);
+
 Route::get('/previousProject', [App\Http\Controllers\previousProjectController::class, 'view_previousProject']);
+
 
 Route::get('/subForProposal', [App\Http\Controllers\subForProposalController::class, 'view_subForProposal']);
 
