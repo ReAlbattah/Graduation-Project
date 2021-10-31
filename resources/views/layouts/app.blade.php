@@ -125,7 +125,7 @@
                                     @if(Auth::user() && Auth::user()->role_id == 1)
                                         <a class="dropdown-item" href="/admin/templates"> Temlates</a>
                                         <a class="dropdown-item" href="/previousProject"> Previous Project</a>
-                                        <a class="dropdown-item" href="/usersmanagement"> Users Management</a>
+                                        <a class="dropdown-item" href="/admin/users_management"> Users Management</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -188,11 +188,10 @@
                         <button type="button" class="btn btn-primary">submit</button>
                         </div>
                         </form>
-    </div>
-    </div>
-    </div>
+    </div>scripts
     </div>
     </div>
     
 </body>
+@yield('scripts')
 </html>

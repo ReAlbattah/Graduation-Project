@@ -32,6 +32,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->group(function () {
     Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
     Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
+    Route::get('/users_management', [App\Http\Controllers\UsersManagementController::class, 'view_users_management']);
+    Route::get('/users_management/{id}', [App\Http\Controllers\UsersManagementController::class, 'edit_user_page']);
+    Route::put('/users_management/{id}', [App\Http\Controllers\UsersManagementController::class, 'update']);
+    Route::delete('/users_management/{id}', [App\Http\Controllers\UsersManagementController::class, 'destroy']);
 });
 
 Route::prefix('supervisor')->group(function () {
@@ -43,7 +47,7 @@ Route::get('/templates/download/{id}', [App\Http\Controllers\TemplatesController
 
 Route::get('/aboutus', [App\Http\Controllers\AboutusController::class, 'view_aboutus']);
 
-Route::get('/usersmanagement', [App\Http\Controllers\usersmanagementController::class, 'view_usersmanagement']);
+
 
 Route::get('/previousProject', [App\Http\Controllers\previousProjectController::class, 'view_previousProject']);
 
