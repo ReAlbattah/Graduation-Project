@@ -20,10 +20,10 @@
                         <td>
                             <div class="btn-group" role="group">
                                 <a role="button" class="btn btn-outline-secondary btn-sm mr-1" href="#"><i class="far fa-edit"></i></a>
-                                <form action="#" method="post">
+                                <form action="/admin/templates/{{$template->id}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <a type="submit" href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                    <button type="submit" href="#" onclick="return confirmDelete()" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
                         </td>
@@ -34,7 +34,7 @@
     </div>
     <!-- Button trigger modal -->
     
-    
+
     <!-- Modal -->
     <div class="modal fade" id="add-template-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -64,3 +64,16 @@
     </div>
   
 @endsection 
+
+
+
+@section('scripts')
+    <script>
+        function confirmDelete() {
+            if (confirm("Are you sure want to delete?")) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+@endsection

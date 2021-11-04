@@ -42,6 +42,15 @@ class TemplatesController extends Controller
 
     public function destroy($id) {
         // delete the template from the database
+        $template = Template::find($id);
+
+         // delete the template
+         $template->delete();
+
+         // return the view
+         return redirect('admin/templates');
+    
+    
     }
 
     public function document_download($id) {

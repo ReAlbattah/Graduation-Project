@@ -15,19 +15,23 @@
             <input type="text" class="form-control" name="name" value="{{$user->name}}">
         </div>
         <div class="form-group">
+            <label>ID Number</label>
+            <input type="text" class="form-control" name="id_number" value="{{$user->id_number}}">
+        </div>
+        <div class="form-group">
             <label>Email</label>
             <input type="email" class="form-control" name="email" value="{{$user->email}}">
         </div>
         <div class="form-group">
             <label>Role</label>
             <select class="form-control" name="role_id">
-              <option value="">__Please Select__</option>
+              
               @foreach ($roles as $role)
                 <option value="{{$role->id}}" @if($user->role_id == $role->id) selected @endif>{{$role->name}}</option>    
               @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
    
     </div>

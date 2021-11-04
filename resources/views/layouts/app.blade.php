@@ -49,10 +49,10 @@
                                 <a class="btn btn-secondary mx-1" type="button" href="/subForProposal" >
                                    Add Subscribe for proposal
                                 </a>
+                                <a class="btn btn-secondary mx-1" type="button" href="/group" >
+                                    Group
+                                 </a>
                             @endif 
-
-                        
-                    
 
                             
                         <div class="dropdown">
@@ -123,8 +123,8 @@
                                     <a class="dropdown-item"> Supervisor</a>   
                                     @endif
                                     @if(Auth::user() && Auth::user()->role_id == 1)
-                                        <a class="dropdown-item" href="/admin/templates"> Temlates</a>
-                                        <a class="dropdown-item" href="/previousProject"> Previous Project</a>
+                                        <a class="dropdown-item" href="/admin/templates"> Temlates Management</a>
+                                        <a class="dropdown-item" href="/projectDetiles"> Project Management</a>
                                         <a class="dropdown-item" href="/admin/users_management"> Users Management</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -182,13 +182,18 @@
                                 <label for="usr">More details: </label>
                                 <textarea class="form-control" id="usr"></textarea>
                               </div>  
-                
+                        
+                              <div class="form-group">
+                                <label for="exampleFormControlFile1">If you want upload file</label>
+                                <input type="file" class="form-control-file" name="file">
+                            </div> 
+
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">submit</button>
                         </div>
                         </form>
-    </div>scripts
+    </div>
     </div>
     </div>
     
