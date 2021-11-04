@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\previousProjectController;
-use App\Http\Controllers\subForProposalController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\usersmanagementController;
 use App\Http\Controllers\GroupController;
 /*
@@ -54,7 +54,7 @@ Route::get('/previousProject', [App\Http\Controllers\previousProjectController::
 Route::get('/projectDetiles', [App\Http\Controllers\previousProjectController::class, 'view_projectDetiles']);
 
 
-Route::get('/subForProposal', [App\Http\Controllers\subForProposalController::class, 'view_subForProposal']);
+Route::get('/subForProposal', [App\Http\Controllers\ProjectController::class, 'view_subForProposal']);
 
 Route::get('/group', [App\Http\Controllers\GroupController::class, 'view_group']);
 

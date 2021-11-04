@@ -51,4 +51,29 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function supervising_groups()
+    {
+        return $this->hasMany(Group::class, 'supervisor_id');
+    }
+
+    public function student_group()
+    {
+        return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
+
+
+    public function the_function() {
+        // get the groups of the supervisor
+        $user = User::find(2);
+        $user->supervising_groups;
+
+        // get the group of the student
+        $lina = User::find(3);
+        $badr = User::find(4);
+        // both will return the same group
+        $lina->student_group;
+        $badr->student_group;
+
+    }
 }

@@ -15,12 +15,11 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('projectTitle');
-            $table->longText('projectDesc');
+            $table->string('project_title');
+            $table->longText('project_desc');
             $table->integer('year');
-            $table->integer('group_id')->unique();
             $table->string('file');
-            $table->boolean('status');
+            $table->enum('status', ['pending', 'accepted', 'pass', 'fail'])->default('pending');
             $table->timestamps();
         }); 
     }

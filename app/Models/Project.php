@@ -11,4 +11,11 @@ class Project extends Model
 
     protected $guarded = [];
 
+
+
+    public function group()
+    {
+        return $this->hasOne(Group::class);
+    }
+
 }
