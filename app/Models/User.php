@@ -22,7 +22,8 @@ class User extends Authenticatable
         'id_number',
         'email',
         'password',
-        'role_id'
+        'role_id',
+        'group_id'
     ];
     public function students(){
         return $this->hasMany('App\Models\students');

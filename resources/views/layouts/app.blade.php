@@ -46,8 +46,8 @@
                     </a>
 
                         @if(Auth::user() && Auth::user()->role_id ==3 )
-                                <a class="btn btn-secondary mx-1" type="button" href="/subForProposal" >
-                                   Add Subscribe for proposal
+                                <a class="btn btn-secondary mx-1" type="button" href="/project" >
+                                   Add Project
                                 </a>
                                 <a class="btn btn-secondary mx-1" type="button" href="/group" >
                                     Group
@@ -124,8 +124,11 @@
                                     @endif
                                     @if(Auth::user() && Auth::user()->role_id == 1)
                                         <a class="dropdown-item" href="/admin/templates"> Temlates Management</a>
-                                        <a class="dropdown-item" href="/projectDetiles"> Project Management</a>
+                                        <a class="dropdown-item" href="/project_detiles"> Project Management</a>
                                         <a class="dropdown-item" href="/admin/users_management"> Users Management</a>
+                                    @endif
+                                    @if(Auth::user() && Auth::user()->role_id == 2)
+                                        <a class="dropdown-item" href="/supervisor/display_groups"> group</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -11,8 +11,8 @@ class ProjectController extends Controller
         $this->middleware('auth');
     }
     
-    public function view_subForProposal() {
-        return view('subscribeForProposal.subscribeForProposal');
+    public function view_project() {
+        return view('project.addProject');
 
     }
 

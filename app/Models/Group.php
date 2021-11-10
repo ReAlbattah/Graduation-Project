@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
 
     public function supervised_by()
     {
@@ -29,6 +29,7 @@ class Group extends Model
         // get the groups of the supervisor
         $group = Group::find(1);
         $group->students; // will return an array with all the students of this grop
+        
     }
 
 

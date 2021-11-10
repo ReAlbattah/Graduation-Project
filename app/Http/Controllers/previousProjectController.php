@@ -12,7 +12,7 @@ class previousProjectController extends Controller
 
     }
 
-    public function view_projectDetiles() {
+    public function view_project_detiles() {
         $projects = Project ::all();
         return view('previousProject.detiles');
 
