@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Group;
-
+use Auth;
 class GroupController extends Controller
 {
     public function __construct()
@@ -22,11 +22,9 @@ class GroupController extends Controller
 
     public function supervisor_groups(){
         // جيبي القروبات تبع المشرف
-        $group = Group::all();
-        $user->supervising_groups;
+        $groups = Auth::user()->supervising_groups;        
         // ارسلي القروبات للفيو يعني return
-        // راح تحتاجي راوت جديد و فيو جديد 
-        return view('group.displayGroups', compact('supervisors') );
+        return view('group.displayGroups', compact('groups') );
     }
 
     public function create_group(Request $request ) {

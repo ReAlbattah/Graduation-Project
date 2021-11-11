@@ -1,16 +1,9 @@
 @extends('layouts.app')
 
-
-
-
 @section('content')
 
    <div class="container mt-5">
-      @if(Auth::user() && Auth::user()->role_id ==1 )
-      <button type="button" class="btn btn-secondary mb-3" data-toggle="modal" data-target="#add-template-modal">
-          Add Previous Project 
-      </button>
-      @endif 
+      
 
 
    <table class="table">
@@ -21,7 +14,12 @@
         </tr>
       </thead>
       <tbody>
-   
+        @foreach ($projects as $project)
+        <tr>
+            <td><a href="/project_detiles/{{$project->id}}">{{$project->project_title}}</a></td>
+            <td>{{$project->year}}</td>
+        </tr>
+      @endforeach  
 
       </tbody>
   </table>

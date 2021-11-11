@@ -44,17 +44,23 @@ Route::prefix('supervisor')->group(function () {
     Route::get('/groups', [App\Http\Controllers\GroupController::class, 'view_group']);
     Route::post('/create_groups', [App\Http\Controllers\GroupController::class, 'create_group']);
     Route::get('/display_groups', [App\Http\Controllers\GroupController::class, 'supervisor_groups']);
+    Route::post('/create_project', [App\Http\Controllers\ProjectController::class, 'create_project']);
 
 
 
 });
 Route::get('/templates/download/{id}', [App\Http\Controllers\TemplatesController::class, 'document_download']);
 
+
+
 Route::get('/aboutus', [App\Http\Controllers\AboutusController::class, 'view_aboutus']);
 
-Route::get('/previousProject', [App\Http\Controllers\previousProjectController::class, 'view_previousProject']);
+Route::get('/previousProject', [App\Http\Controllers\ProjectController::class, 'view_previousProject']);
 
-Route::get('/project_detiles', [App\Http\Controllers\previousProjectController::class, 'view_project_detiles']);
+Route::get('/project_detiles/{id}', [App\Http\Controllers\ProjectController::class, 'view_project_detiles']);
+
 
 Route::get('/project', [App\Http\Controllers\ProjectController::class, 'view_project']);
+
+Route::get('/group', [App\Http\Controllers\GroupController::class, 'view_group']);
 

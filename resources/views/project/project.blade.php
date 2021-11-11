@@ -5,7 +5,7 @@
     <div class="modal-dialog " role="document">
         <div role="document">
             <div class="modal-content">
-                    <form action="/supervisor/display_groups" method="post">
+                    <form action="" method="post">
                         @csrf
                         <table class="table">
                             <thead>
@@ -15,18 +15,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($groups as $key => $group)
-                                <tr>
-                                       <td> {{$key+1 }}</td>
-
-
-                                       <td>
-                                          @foreach ($group->students as $student)
-                                                {{$student->name}} -
-                                          @endforeach
-                                        </td>
-                                </tr>
-                              @endforeach  
+                                
                         
                             </tbody>
                         </table>
@@ -39,8 +28,6 @@
 </div>
 </div>
 @endsection
-
-
 
 
 
