@@ -4,7 +4,7 @@
     <div class="container text-center">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
-                @if (Auth::user()->student_group != null && Auth::user()->student_group->project_id == null)
+                @if (Auth::user()->student_group != null && Auth::user()->student_group->project_id == null )
                 <form action="/supervisor/create_project" method="post">
                     @csrf
                     <div class="modal-header">
@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="user">year: </label>
-                        <input type="number" class="form-control" min="2020" max="2099" step="1" name="year" />
+                        <input type="number" class="form-control" min="2020" max="2030" step="1" name="year" />
                     </div>
 
                     <div class="form-group">

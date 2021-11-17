@@ -14,7 +14,7 @@ class AddGroupIdToProjectTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->foreignId('group_id')->nullable()->constrained();
+            $table->foreignId('group_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 

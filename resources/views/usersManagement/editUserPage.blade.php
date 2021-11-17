@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container mt-5">
-    <h3>edit user</h3>
+    <h3>Edit user</h3>
 
     <form action="/admin/users_management/{{$user->id}}" method="post">
         @method('put')

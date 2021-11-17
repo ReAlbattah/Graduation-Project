@@ -6,6 +6,7 @@
         <div class="modal-dialog " role="document">
             <div role="document">
                 <div class="modal-content">
+                    
                     @if (Auth::user() && Auth::user()->role_id == 3 && Auth::user()->student_group == null)
                         <form action="/supervisor/create_groups" method="post">
                             @csrf

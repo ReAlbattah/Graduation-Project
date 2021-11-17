@@ -29,6 +29,7 @@ class GroupController extends Controller
 
     public function create_group(Request $request ) {
         // create group (supervisor_id) 
+        //dd($request->all() );
         $group = Group::create($request->only("supervisor_id"));
         // $group = create the group
         // $group->id
@@ -39,7 +40,7 @@ class GroupController extends Controller
             }
         }
         // update users with the id numbers and add the group_id to them "return"
-        return redirect('supervisor/groups');
+        return redirect('/home');
         
     }
 }

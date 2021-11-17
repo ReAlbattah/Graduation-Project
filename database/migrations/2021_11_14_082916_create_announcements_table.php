@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateAnnouncementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('announcements', function (Blueprint $table) {
             $table->id();
-            $table->string('project_title');
-            $table->longText('project_desc');
-            $table->integer('year');
+            $table->string('company_name');
+            $table->string('location');
+            $table->string('job_name');
+            $table->longText('description');
             $table->string('file');
-            $table->enum('status', ['pending', 'pass', 'fail'])->default('pending');
+            $table->enum('status', ['hanging', 'acceptable', "unacceptable"])->default('hanging');
             $table->timestamps();
-        }); 
+        });
     }
 
     /**
@@ -31,6 +32,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('announcements');
     }
 }

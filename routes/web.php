@@ -7,6 +7,8 @@ use App\Http\Controllers\previousProjectController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\usersmanagementController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\AnnouncementController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +28,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::prefix('admin')->group(function () {
     Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
     Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
@@ -38,6 +36,19 @@ Route::prefix('admin')->group(function () {
     Route::get('/users_management/{id}', [App\Http\Controllers\UsersManagementController::class, 'edit_user_page']);
     Route::put('/users_management/{id}', [App\Http\Controllers\UsersManagementController::class, 'update']);
     Route::delete('/users_management/{id}', [App\Http\Controllers\UsersManagementController::class, 'destroy']);
+    Route::get('/project_management', [App\Http\Controllers\ProjectController::class, 'project_management']);
+    Route::get('/project_management/{id}', [App\Http\Controllers\ProjectController::class, 'edit_project']);
+    Route::put('/project_management/{id}', [App\Http\Controllers\ProjectController::class, 'update']);
+    Route::delete('/project_management/{id}', [App\Http\Controllers\ProjectController::class, 'destroy']);
+    Route::get('/AD_Management', [App\Http\Controllers\AnnouncementController::class, 'view_announcement']);
+    Route::post('/AD_Management', [App\Http\Controllers\AnnouncementController::class, 'create_announcement']);
+    Route::get('/AD_Management/{id}', [App\Http\Controllers\AnnouncementController::class, 'job_status']);
+    Route::put('/AD_Management/{id}', [App\Http\Controllers\AnnouncementController::class, 'update']);
+    Route::delete('/AD_Management/{id}', [App\Http\Controllers\AnnouncementController::class, 'destroy']);
+    Route::get('/announcement/download/{id}', [App\Http\Controllers\AnnouncementController::class, 'document_download']);
+    Route::get('/home', [App\Http\Controllers\AdvertisementController::class, 'view_advertisement_page']);
+
+
 });
 
 Route::prefix('supervisor')->group(function () {
@@ -59,8 +70,7 @@ Route::get('/previousProject', [App\Http\Controllers\ProjectController::class, '
 
 Route::get('/project_detiles/{id}', [App\Http\Controllers\ProjectController::class, 'view_project_detiles']);
 
-
-Route::get('/project', [App\Http\Controllers\ProjectController::class, 'view_project']);
+Route::get('/project', [App\Http\Controllers\ProjectController::class, 'add_project_page']);
 
 Route::get('/group', [App\Http\Controllers\GroupController::class, 'view_group']);
 
