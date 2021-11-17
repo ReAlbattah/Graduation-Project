@@ -19,7 +19,6 @@
                                 <tr>
                                        <td> {{$key+1 }}</td>
 
-
                                        <td>
                                           @foreach ($group->students as $student)
                                                 {{$student->name}} -

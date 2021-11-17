@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="{{ asset('css/custom_styles.css') }}">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -155,12 +155,12 @@
                     @endguest
                 </ul>
             </div>
-    </div>
+        </div>
     </nav>
 
 
 
-    <main class="py-4">
+    <main class="row">
 
         @yield('content')
     </main>

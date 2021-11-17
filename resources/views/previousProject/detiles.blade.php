@@ -19,10 +19,10 @@
       <tbody>
         <tr>
             <td>{{$project->project_title}}</td>
-            <td>                    
-                        @foreach ($group->students as $student)
-                              {{$student->name}} -
-                        @endforeach
+            <td>       
+                @foreach ($project->group->students as $student)
+                      {{$student->name}} -
+                @endforeach
             </td>
             </td>
             <td>{{$supervisor = $project->group->supervised_by ->name}}</td>

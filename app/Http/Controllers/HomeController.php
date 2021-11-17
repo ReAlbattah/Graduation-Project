@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $role_id = Auth::user()->role_id;
+
+        if($role_id == 1) {
+            $data = 'the data';
+            return view('home', compact('role_id', 'data'));
+        } else if($role_id == 2) {
+            $group = 'the group';
+            return view('home', compact('role_id', 'group'));
+        } else {
+            return view('home', compact('role_id'));
+        }
+        
     }
 }

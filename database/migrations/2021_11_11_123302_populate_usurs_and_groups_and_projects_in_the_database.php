@@ -52,9 +52,6 @@ class PopulateUsursAndGroupsAndProjectsInTheDatabase extends Migration
             $id_number = '000'.$i;
             $user = User::where('id_number', $id_number )->first();
             $user->update(['group_id'=>$group->id]);
-            $id_number = $i.$i.$i.$i;
-            $user = User::where('id_number', $id_number )->first();
-            $user->update(['group_id'=>$group->id]);
 
 
         } 
