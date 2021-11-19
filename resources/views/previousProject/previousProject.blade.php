@@ -2,7 +2,7 @@
 @section('content')
 
 @include('layouts.sideBar')
-<div class="col-sm-10 vh-100">
+<div class="col-sm vh-100">
   <div class="container mt-5">
     <table class="table">
       <thead>

@@ -5,7 +5,7 @@
 @include('layouts.sideBar')
 
 
-<div class="col-sm-10 vh-100">
+<div class="col-sm vh-100">
     @if($role_id == 1)
         <p>admin: {{$data}}</p>
     

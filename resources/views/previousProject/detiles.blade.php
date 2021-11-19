@@ -3,9 +3,8 @@
 
 @section('content')
 @include('layouts.sideBar')
-
+<div class="col-sm vh-100">
   <div class="container mt-5">
-    
     <table class="table">
       <thead>
         <tr>
@@ -20,10 +19,12 @@
       <tbody>
         <tr>
             <td>{{$project->project_title}}</td>
-            <td>       
-                @foreach ($project->group->students as $student)
-                      {{$student->name}}  <br/> 
-                @endforeach
+            <td>     
+                <ul>
+                  @foreach ($project->group->students as $student)
+                    <li>{{$student->name}}</li>
+                  @endforeach
+                </ul>  
             </td>
             </td>
             <td>{{$supervisor = $project->group->supervised_by ->name}}</td>
@@ -34,7 +35,9 @@
         </tr>
 
       </tbody>
-  </table>
+    </table>
+  </div>
+</div>
 @endsection 
 
 @section('scripts')

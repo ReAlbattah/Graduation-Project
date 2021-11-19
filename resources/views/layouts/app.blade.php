@@ -85,7 +85,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" type="button" href="#" data-toggle="modal"
-                                data-target="#exampleModal">Send Job</a>
+                                data-target="#sendJobModal">Send Job</a>
                         </div>
                     </div>
 
@@ -165,7 +165,7 @@
         @yield('content')
     </main>
     {{-- send jobs form --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="sendJobModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content">

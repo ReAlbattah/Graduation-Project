@@ -1,4 +1,4 @@
-<div class="col-sm-2 bg-dark vh-100 p-0" id="mySideBar">
+<div class="col-sm-3 bg-dark vh-100 p-0" id="mySideBar">
     <div class="card bg-transparent border-0">
         <div class="card-body card-link py-0 ">
             <a href="/home"><i class="fas fa-home mr-2-archive mr-2 home"></i><small class="home">Home</small></a>
@@ -47,10 +47,18 @@
             <a href="/previousProject"><i class="fas fa-file-alt mr-2-archive mr-2 previousProjects detiles"></i><small class="previousProjects detiles">Previous Projects</small></a>
         </div>      
     </div>
+    
     <div class="card bg-transparent border-0">
         <div class="card-body card-link py-0 ">
-            <a href="#"><i class="fas fa-building mr-2-archive mr-2"></i><small id="products">Companies</small></a>
+            <a href="#" data-toggle="collapse" data-target="#companiesCollapse" aria-expanded="false" aria-controls="companiesCollapse"><i class="fas fa-building mr-2-archive mr-2"></i><small id="products">Companies</small></a>
         </div>  
+    </div>
+    <div class="collapse" id="companiesCollapse">
+        <div class="card bg-transparent border-0 ml-5">
+            <div class="card-body card-link py-0 ">
+                <a href="#" data-toggle="modal" data-target="#sendJobModal"><i class="fas fa-briefcase mr-2-archive mr-2"></i><small>Send Job</small></a>
+            </div>      
+        </div>
     </div>
     <div class="card bg-transparent border-0">
         <div class="card-body card-link py-0 ">
