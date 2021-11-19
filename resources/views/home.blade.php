@@ -25,3 +25,9 @@
 
 
 @endsection
+
+@section('scripts')
+    <script>
+        $("#mySideBar .home").addClass("active-sidebar");
+    </script>
+@endsection

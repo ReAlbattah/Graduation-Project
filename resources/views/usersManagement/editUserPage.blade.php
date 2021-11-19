@@ -1,9 +1,9 @@
 @extends('layouts.app')
-
-
-
-
 @section('content')
+
+@include('layouts.sideBar')
+
+
     <div class="container mt-5">
     <h3>Edit user</h3>
 
@@ -36,3 +36,4 @@
    
     </div>
 @endsection 
+

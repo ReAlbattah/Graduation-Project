@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.sideBar')
 
    <div class="container mt-5">
       
@@ -49,3 +50,5 @@
         }
     </script>
 @endsection
+
+

@@ -74,3 +74,6 @@ Route::get('/project', [App\Http\Controllers\ProjectController::class, 'add_proj
 
 Route::get('/group', [App\Http\Controllers\GroupController::class, 'view_group']);
 
+Route::get('/project/download/{id}', [App\Http\Controllers\ProjectController::class, 'document_download']);
+
+

@@ -7,6 +7,8 @@ use App\Models\Project;
 use App\Models\Group;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class ProjectController extends Controller
@@ -31,6 +33,7 @@ class ProjectController extends Controller
         $project= Project::create($data);
         $group= Group::find($data['group_id']);
         $group->update(['project_id' => $project->id]); 
+        
         return redirect('/home');
     }
 
@@ -66,5 +69,10 @@ class ProjectController extends Controller
         $project = Project::find($id);
         $project->delete();
         return redirect('admin/project_management');
+    }
+
+    public function document_download($id) {
+        $project = Project::find($id);
+        return Storage::download('/public/documents/'.$project->file);
     }
 }

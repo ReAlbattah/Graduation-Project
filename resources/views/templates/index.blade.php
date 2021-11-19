@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.sideBar')
+
     <div class="container mt-5">
         <button type="button" class="btn btn-secondary mb-3" data-toggle="modal" data-target="#add-template-modal">
             Add Template
@@ -77,3 +79,4 @@
         }
     </script>
 @endsection
+

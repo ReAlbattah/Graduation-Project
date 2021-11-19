@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.sideBar')
 
     <div class="container text-center">
         <div class="modal-dialog " role="document">

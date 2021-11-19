@@ -1,14 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
+@include('layouts.sideBar')
+
     <div class="container text-center">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
                 @if (Auth::user()->student_group != null && Auth::user()->student_group->project_id == null )
-                <form action="/supervisor/create_project" method="post">
+                <form action="/supervisor/create_project" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Model for Subscribe</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Model for Add Project</h5>
                     </div>
 
                     <div class="modal-body">
@@ -46,7 +48,10 @@
                         <textarea class="form-control" name="project_desc"></textarea>
                     </div>
 
-                    <input type="hidden" name="file" value="test" />
+                    <div class="form-group">
+                        <label for="user">File:</label>
+                        <input type="file" class="form-control-file" name="file">
+                    </div>
 
                     <div class="container text-center">
                         <button type="submit" class="btn btn-primary col-8">submit</button>
@@ -63,3 +68,5 @@
     </div>
 
 @endsection
+
+

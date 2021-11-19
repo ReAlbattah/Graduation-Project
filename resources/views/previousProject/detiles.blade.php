@@ -2,6 +2,7 @@
 
 
 @section('content')
+@include('layouts.sideBar')
 
   <div class="container mt-5">
     
@@ -21,7 +22,7 @@
             <td>{{$project->project_title}}</td>
             <td>       
                 @foreach ($project->group->students as $student)
-                      {{$student->name}} -
+                      {{$student->name}}  <br/> 
                 @endforeach
             </td>
             </td>
@@ -35,3 +36,9 @@
       </tbody>
   </table>
 @endsection 
+
+@section('scripts')
+    <script>
+        $("#mySideBar .detiles").addClass("active-sidebar");
+    </script>
+@endsection
