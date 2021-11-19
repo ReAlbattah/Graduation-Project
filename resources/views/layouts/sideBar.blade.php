@@ -1,3 +1,11 @@
+@php
+        $student_group = Auth::user()->student_group;
+        $project = null;
+        if($student_group != null) {
+            $project = Auth::user()->student_group->project;
+        }
+    @endphp
+
 <div class="col-sm-3 bg-dark vh-100 p-0" id="mySideBar">
     <div class="card bg-transparent border-0">
         <div class="card-body card-link py-0 ">
@@ -30,12 +38,26 @@
         @else
         <div class="card bg-transparent border-0">
             <div class="card-body card-link py-0 ">
-                <a href="/group"><i class="fas fa-users mr-2"></i><small id="products">Group</small></a>
+                <a href="/group"><i class="fas fa-users mr-2 groups"></i>
+                    <small class="groups">
+                        @if($student_group == null)
+                            Add Group
+                        @else
+                            Your Group
+                        @endif
+                    </small></a>
             </div>
         </div>
         <div class="card bg-transparent border-0">
             <div class="card-body card-link py-0 ">
-                <a href="/project"><i class="fas fa-users mr-2"></i><small id="products">Add Project</small></a>
+                <a href="/project"><i class="fas fa-users mr-2 projects"></i>
+                    <small class="projects">
+                        @if($project == null)
+                            Add Project
+                        @else
+                            Your Project
+                        @endif
+                    </small></a>
             </div>
         </div>
         

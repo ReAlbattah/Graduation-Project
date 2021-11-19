@@ -31,14 +31,15 @@ class GroupController extends Controller
         // create group (supervisor_id) 
         //dd($request->all() );
         $group = Group::create($request->only("supervisor_id"));
+        Auth::user()->update(['group_id' => $group->id]);
         // $group = create the group
         // $group->id
-        foreach ($request->student as  $value) {
-            $student = User::where('role_id', 3)->where('id_number', $value )->first();
-            if ($student != null){
-                $student->update(['group_id' => $group->id]); 
-            }
-        }
+        // foreach ($request->student as  $value) {
+        //     $student = User::where('role_id', 3)->where('id_number', $value )->first();
+        //     if ($student != null){
+        //         $student->update(['group_id' => $group->id]); 
+        //     }
+        // }
         // update users with the id numbers and add the group_id to them "return"
         return redirect('/home');
         

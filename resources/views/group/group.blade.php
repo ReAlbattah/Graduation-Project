@@ -2,56 +2,65 @@
 
 @section('content')
 @include('layouts.sideBar')
+    <div class="col-sm mt-5 mx-5">
+        <h4>
+            @if (Auth::user()->student_group == null)
+                Join Your Group
+            @else
+                Your Group Information
+            @endif
+        </h4> 
+        <form class="mt-4" @if(Auth::user()->student_group == null) action="/supervisor/create_groups" method="post" @endif>
+            @csrf
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Supervisor Name</label>
+                <div class="col-sm-10">
+                    @if(Auth::user()->student_group == null)
+                        <select class="form-control" name="supervisor_id">
 
-    <div class="container text-center">
-        <div class="modal-dialog " role="document">
-            <div role="document">
-                <div class="modal-content">
-                    
-                    @if (Auth::user() && Auth::user()->role_id == 3 && Auth::user()->student_group == null)
-                        <form action="/supervisor/create_groups" method="post">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Create a group</h5>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Supervisor Name</label>
-                                <select class="form-control" name="supervisor_id">
-
-                                    @foreach ($supervisors as $supervisor)
-                                        <option value="{{ $supervisor->id }}"> {{ $supervisor->name }} </option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="usr"> Student ID:</label>
-                                    <input class="col-sm-10" type="text" name="student[]">
-                                    <label for="usr"> Student ID:</label>
-                                    <input class="col-sm-10" type="text" name="student[]">
-                                    <label for="usr"> Student ID:</label>
-                                    <input class="col-sm-10" type="text" name="student[]">
-                                    <label for="usr"> Student ID:</label>
-                                    <input class="col-sm-10" type="text" name="student[]">
-                                    <label for="usr"> Student ID:</label>
-                                    <input class="col-sm-10" type="text" name="student[]">
-                                    <label for="usr"> Student ID:</label>
-                                    <input class="col-sm-10" type="text" name="student[]">
-                                </div>
-                            </div>
-
-                            <div class="container text-center">
-                                <button type="submit" class="btn btn-primary col-8">submit</button>
-                            </div>
-                        </form>
+                            @foreach ($supervisors as $supervisor)
+                                <option value="{{ $supervisor->id }}"> {{ $supervisor->name }} </option>
+                            @endforeach
+                        </select>
+                    @else
+                        @php
+                            $supervisor_name = '';
+                            if (
+                                Auth::user()
+                                    ->student_group()
+                                    ->exists()
+                            ) {
+                                $supervisor_name = Auth::user()->student_group->supervised_by->name;
+                            }
+                        @endphp
+                        <input readonly type="text" class="form-control" value="{{$supervisor_name}}">
                     @endif
                 </div>
             </div>
-        </div>
+            @if(Auth::user()->student_group != null)
+                <div class="form-group row">
+                    <label for="students-names" class="col-sm-2 col-form-label">Group Students</label>
+                    <div class="col-sm-10">
+                        <div class="d-flex">
+                            @foreach (Auth::user()->student_group->students as $student)
+                                <h5><span class="badge badge-info text-white mr-2 mt-1 p-2">{{$student->name}}</span></h5>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if (Auth::user()->student_group == null)
+                <div class="form-group row justify-content-end">
+                    <div class="col-sm-3 text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            @endif
+        </form>
     </div>
-    </div>
-    </div>
+@endsection
+@section('scripts')
+    <script>
+        $("#mySideBar .groups").addClass("active-sidebar");
+    </script>
 @endsection

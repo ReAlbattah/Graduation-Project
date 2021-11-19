@@ -25,16 +25,29 @@ class ProjectController extends Controller
 
 
     public function create_project(Request $request) {
-        //dd($request->all());
+        $request->validate([
+            'project_title' => 'required|max:50',
+            'project_desc' => 'required|max:200',
+            'year' => 'required|integer|min:2020|max:2030',
+            'file' => 'file|required|mimes:pdf',
+        ]);
+
         // create project
         $data=$request->all();
         //dd($data);
         $data['group_id']= Auth::user()->group_id;
+
+        $fileName = time().'_'.$request->file->getClientOriginalName();
+        $request->file('file')->storeAs('projects', $fileName, 'public');
+        $data['file'] = $fileName;
+        
         $project= Project::create($data);
+
+        
         $group= Group::find($data['group_id']);
         $group->update(['project_id' => $project->id]); 
         
-        return redirect('/home');
+        return redirect('/home')->with('success_message', 'Data Was Added Successfully');
     }
 
     public function view_previousProject() {
@@ -73,6 +86,6 @@ class ProjectController extends Controller
 
     public function document_download($id) {
         $project = Project::find($id);
-        return Storage::download('/public/documents/'.$project->file);
+        return Storage::download('/public/projects/'.$project->file);
     }
 }

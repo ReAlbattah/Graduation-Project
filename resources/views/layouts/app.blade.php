@@ -46,20 +46,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <a class="btn btn-secondary mx-1" type="button" href="/aboutus">
-                        About Us
-                    </a>
-
-                    @if (Auth::user() && Auth::user()->role_id == 3)
-                        <a class="btn btn-secondary mx-1" type="button" href="/project">
-                            Add Project
-                        </a>
-                        <a class="btn btn-secondary mx-1" type="button" href="/group">
-                            Group
-                        </a>
-                    @endif
-
-
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,29 +58,6 @@
                             @endforeach
                         </div>
                     </div>
-
-                    <a class="btn btn-secondary mx-1" type="button" href="/previousProject">
-                        Previous project
-                    </a>
-
-
-                    <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Companies
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" type="button" href="#" data-toggle="modal"
-                                data-target="#sendJobModal">Send Job</a>
-                        </div>
-                    </div>
-
-                    @if (Auth::user())
-                        <a class="btn btn-secondary mx-1" type="button" href="mailto: ">
-                            Contact
-                        </a>
-                    @endif
-
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
