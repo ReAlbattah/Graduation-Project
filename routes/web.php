@@ -32,6 +32,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->group(function () {
     Route::get('/groups', [App\Http\Controllers\GroupController::class, 'list_groups']);
+    Route::get('/group/{id}/edit', [App\Http\Controllers\GroupController::class, 'edit_group']);
+    Route::post('/group/{id}/update', [App\Http\Controllers\GroupController::class, 'update']);
+    Route::delete('/group/{id}/delete', [App\Http\Controllers\GroupController::class, 'delete']);
+    Route::delete('/user/{id}/remove', [App\Http\Controllers\GroupController::class, 'remove_member']);
+    Route::get('/create', [App\Http\Controllers\GroupController::class, 'create']);
+    Route::post('/create', [App\Http\Controllers\GroupController::class, 'store']);
     Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
     Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
     Route::delete('/templates/{id}', [App\Http\Controllers\TemplatesController::class, 'destroy']);
@@ -43,7 +49,6 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('supervisor')->group(function () {
     Route::get('/groups', [App\Http\Controllers\GroupController::class, 'view_group']);
-    Route::post('/create_groups', [App\Http\Controllers\GroupController::class, 'create_group']);
     Route::get('/display_groups', [App\Http\Controllers\GroupController::class, 'supervisor_groups']);
     Route::post('/create_project', [App\Http\Controllers\ProjectController::class, 'create_project']);
 
@@ -63,5 +68,5 @@ Route::get('/project_detiles/{id}', [App\Http\Controllers\ProjectController::cla
 
 Route::get('/project', [App\Http\Controllers\ProjectController::class, 'view_project']);
 
-Route::get('/group', [App\Http\Controllers\GroupController::class, 'view_group']);
+
 

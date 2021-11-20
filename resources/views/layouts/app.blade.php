@@ -49,7 +49,7 @@
                                 <a class="btn btn-secondary mx-1" type="button" href="/project" >
                                    Add Project
                                 </a>
-                                <a class="btn btn-secondary mx-1" type="button" href="/group" >
+                                <a class="btn btn-secondary mx-1" type="button" href="/join" >
                                     Group
                                  </a>
                             @endif 
@@ -57,7 +57,7 @@
                             
                         <div class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Templates and Formes
+                            Templates and Forms
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 @foreach ($templates as $template)

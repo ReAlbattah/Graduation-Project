@@ -2,11 +2,9 @@
 @section('content')
 <html>
    <head>
-       <title></title>
+       <title>Home</title>
    </head>
       <body>
-
-           
-
       </body>
 </html>
+@endsection
