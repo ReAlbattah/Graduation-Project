@@ -31,6 +31,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
+    Route::get('/groups', [App\Http\Controllers\GroupController::class, 'list_groups']);
     Route::get('/templates', [App\Http\Controllers\TemplatesController::class, 'index']);
     Route::post('/templates', [App\Http\Controllers\TemplatesController::class, 'store']);
     Route::delete('/templates/{id}', [App\Http\Controllers\TemplatesController::class, 'destroy']);

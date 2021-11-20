@@ -17,7 +17,13 @@ class GroupController extends Controller
         // get the supervisors from the database
         $supervisors = User::where('role_id', 2)->get();
         // pass the supervisors to the view
-        return view('group.group',  compact('supervisors'));
+    function list_groups(){
+        // get the supervisors from the database
+        $supervisors = User::where('role_id', 2)->get();
+        $groups = Group::all();
+        // pass the supervisors to the view
+        return view('group.list',  compact('supervisors','groups'));
+    }
     }
 
     public function supervisor_groups(){
