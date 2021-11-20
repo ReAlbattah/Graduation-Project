@@ -1,12 +1,10 @@
 @extends('layouts.app')
-
 @section('content')
 
-   <div class="container mt-5">
-      
-
-
-   <table class="table">
+@include('layouts.sideBar')
+<div class="col-sm vh-100">
+  <div class="container mt-5">
+    <table class="table">
       <thead>
         <tr>
           <th scope="col">Project Name</th>
@@ -22,6 +20,14 @@
       @endforeach  
 
       </tbody>
-  </table>
+    </table>
+  </div>
 </div>
+   
 @endsection 
+
+@section('scripts')
+    <script>
+        $("#mySideBar .previousProjects").addClass("active-sidebar");
+    </script>
+@endsection

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGroupIdToUsersTable extends Migration
+class CreateAdvertisementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddGroupIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('group_id')->nullable()->constrained()->onDelete('set null');
+        Schema::create('advertisements', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->longText('content');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddGroupIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('advertisements');
     }
 }

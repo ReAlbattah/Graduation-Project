@@ -15,7 +15,7 @@
                     </div>
                 </section>
             
-                <form action="/admin/group/{{$group->id}}/update" method="post">
+                <form id="edit-form" action="/admin/group/{{$group->id}}/update" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="name">Group name</label>
@@ -77,7 +77,7 @@
                     </table>
                     @endif
                     <div class="container py-3">
-                    <button type="submit" class="btn btn-info">Edit</button>
+                        <button onclick="document.getElementById('edit-form').submit();" type="submit" class="btn btn-info">Edit</button>
                     </div>
                 </section>
             

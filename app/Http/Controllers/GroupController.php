@@ -28,6 +28,13 @@ class GroupController extends Controller
         return view('group.list',  compact('supervisors','groups'));
     }
 
+    public function view_group(){
+        // get the supervisors from the database
+        $supervisors = User::where('role_id', 2)->get();
+        // pass the supervisors to the view
+        return view('group.group',  compact('supervisors'));
+    }
+
     public function edit_group($id)
     {
         $group = Group::find($id);
@@ -44,12 +51,7 @@ class GroupController extends Controller
     }
 
     public function store(Request $request ) {
-        // create group (supervisor_id) 
-       
         $group = Group::create($request->only(["supervisor_id","name","max_students"]));
-        // $group = create the group
-        // $group->id
-        // update users with the id numbers and add the group_id to them "return"
         return redirect('admin/groups');
         
     }

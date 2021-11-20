@@ -8,24 +8,25 @@
    <table class="table">
       <thead>
         <tr>
-          <th scope="col">Name</th>
-          <th scope="col">ID</th>
-          <th scope="col">Email</th>
-          <th scope="col">Role</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Job Name</th>
+          <th scope="col">Location</th>
+          <th scope="col">Status</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-          @foreach ($users as $user)
+          @foreach ($announcements as $announcement)
             <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->id_number}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->role->name}}</td>
+                <td>{{$announcement->company_name}}</td>
+                <td>{{$announcement->job_name}}</td>
+                <td>{{$announcement->location}}</td>
+                <td>{{$announcement->status}}</td>
+ 
                 <td>
                     <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-outline-secondary btn-sm mr-1" href="/admin/users_management/{{$user->id}}"><i class="far fa-edit"></i></a>
-                        <form action="/admin/users_management/{{$user->id}}" method="post">
+                        <a role="button" class="btn btn-outline-secondary btn-sm mr-1" href="/admin/AD_Management/{{$announcement->id}}"><i class="far fa-edit"></i></a>
+                        <form action="/admin/AD_Management/{{$announcement->id}}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" href="#" onclick="return confirmDelete()" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
@@ -40,6 +41,7 @@
 @endsection 
 
 
+
 @section('scripts')
     <script>
         function confirmDelete() {
@@ -50,5 +52,4 @@
         }
     </script>
 @endsection
-
 
